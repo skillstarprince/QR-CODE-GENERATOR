@@ -5,7 +5,7 @@ import os
 root = Tk()
 #p1 = PhotoImage(file = "clear.png")
 root.geometry('570x400')
-root.title('skillstarprince qr_code generator')
+root.title('QR_Code Generator')
 root.configure(bg='blue')
 #photo=PhotoImage(file='generatedqr.png')
 #root.tk.call('wm','iconphoto',root._w,photo)
@@ -19,9 +19,11 @@ def generate_qr():     #function for generate qr code
     message_qr = 'Name :'+qr_name+'\n' + 'id :'+qr_id+'\n'+'Message :'+qr_message
     #print(message_qr)
     url = pyqrcode.create(message_qr)
-    pp = r"/home/skillstarprince/Desktop/qrcode/"  #create path for qr code
+    #pp = r"/home/skillstarprince/Desktop/qrcode/"  #create path for qr code
+    #l1 = os.listdir(pp)
+    pp= os.path.abspath(r"allqr/qr_")
     cc = "{}{}{}.png".format(pp,qr_id,qr_name)   #create name of qr code
-    l1 = os.listdir(pp)
+    l1=os.listdir(os.getcwd())
     if('{}{}.png'.format(qr_id,qr_name) in l1):
         messagebox.showinfo('Notification','Please Choose another id or name')
     else:
